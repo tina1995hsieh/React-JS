@@ -3,17 +3,17 @@ import SearchInput from "./SearchInput";
 import EmojiResults from "./EmojiResults";
 import filterName from "./filterName";
 
-export default class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredName: filterName("", 20)
+      filteredName: filterName("", 50)
     };
   }
 
   handleSearchChange(event){
     this.setState({
-      filteredName: filterName(event.target.value, 20)
+      filteredName: filterName(event.target.value, 50)
     });
   };
 
@@ -27,3 +27,4 @@ export default class App extends Component {
     );
   }
 }
+export default App;
