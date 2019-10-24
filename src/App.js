@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import Clipboard from "clipboard";
 import emojiList from "./emojiList.json";
+import "./App.css";
 
 function filterEmoji(searchText, maxResults) {
   return emojiList
@@ -108,18 +109,12 @@ class App extends PureComponent {
       <div>
         <header className="component-header">
           <img
-            src="//cdn.jsdelivr.net/emojione/assets/png/1f638.png"
-            width="32"
-            height="32"
+            src="https://pngimage.net/wp-content/uploads/2018/06/missing-png.png"
+            width="30%"
+            height="30%"
             alt=""
           />
           Emoji Search
-          <img
-            src="//cdn.jsdelivr.net/emojione/assets/png/1f63a.png"
-            width="32"
-            height="32"
-            alt=""
-          />
         </header>
         <SearchInput textChange={this.handleSearchChange} />
         <EmojiResults emojiData={this.state.filteredEmoji} />
