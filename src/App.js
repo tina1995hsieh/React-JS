@@ -43,7 +43,7 @@ class SearchInput extends React.Component {
 
 class Results extends React.Component {
   static propTypes = {
-    nameData: PropTypes.array
+    missingData: PropTypes.array
   };
 
   componentDidMount() {
@@ -57,11 +57,11 @@ class Results extends React.Component {
   render() {
     return (
       <div className="component-missing-results">
-        {this.props.nameData.map(function(nameData) {
+        {this.props.missingData.map(function(missingData) {
           <EmojiResultRow
-            key={emojiData.title}
-            symbol={emojiData.symbol}
-            title={emojiData.title}
+            key={missingData.title}
+            symbol={missingData.symbol}
+            title={missingData.title}
           />
           })}
       </div>
@@ -102,7 +102,7 @@ class App extends React.Component {
           />
         </header>
         <SearchInput textChange={this.handleSearchChange} />
-        <Results NameData={this.state.filteredName} />
+        <Results missingData={this.state.filteredName} />
       </div>
     );
   }
