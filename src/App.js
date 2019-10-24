@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import Clipboard from "clipboard";
-import emojiList from "../emojiList.json";
+import emojiList from "./emojiList.json";
 
 function filterEmoji(searchText, maxResults) {
   return emojiList
@@ -97,11 +97,11 @@ class App extends PureComponent {
     };
   }
 
-  handleSearchChange(event) {
+  handleSearchChange = event => {
     this.setState({
       filteredEmoji: filterEmoji(event.target.value, 20)
     });
-  }
+  };
 
   render() {
     return (

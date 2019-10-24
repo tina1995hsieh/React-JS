@@ -65,7 +65,7 @@
   width: 100%;
 }
 
-.component-missing-result-row {
+.component-emoji-result-row {
   border-bottom: 1px solid #ccc;
   padding: 10px;
   height: 32px;
@@ -74,22 +74,22 @@
   cursor: pointer;
 }
 
-.component-missing-result-row:hover {
+.component-emoji-result-row:hover {
   background-color: #eee;
 }
 
-.component-missing-result-row img {
+.component-emoji-result-row img {
   width: 32px;
   height: 32px;
   padding-right: 10px;
 }
 
-.component-missing-result-row .title {
+.component-emoji-result-row .title {
   position: relative;
   top: -8px;
 }
 
-.component-missing-result-row .info {
+.component-emoji-result-row .info {
   float: right;
   position: relative;
   top: 8px;
@@ -98,6 +98,6 @@
   display: none;
 }
 
-.component-missing-result-row:hover .info {
+.component-emoji-result-row:hover .info {
   display: inline-block;
 }
