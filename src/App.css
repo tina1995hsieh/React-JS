@@ -32,20 +32,12 @@
   }
 }
 
-.component-header {
-  padding: 15px;
-  position: relative;
-  font-weight: normal;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 32px;
-  text-align: center;
-  color: #333;
+.component-header img {
+  position: center;
 }
 
-.component-header img {
-  position: relative;
-  top: 6px;
-  padding: 0 14px;
+.component-header h1 {
+  text-shadow: 0px 0px 8px #423f4f;
 }
 
 .component-search-input {

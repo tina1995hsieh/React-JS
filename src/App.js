@@ -109,12 +109,9 @@ class App extends PureComponent {
       <div>
         <header className="component-header">
           <img
-            src="https://pngimage.net/wp-content/uploads/2018/06/missing-png.png"
-            width="30%"
-            height="30%"
+            src="https://acenewsdesk.files.wordpress.com/2014/12/bvyhgl.jpg"
             alt=""
           />
-          Emoji Search
         </header>
         <SearchInput textChange={this.handleSearchChange} />
         <EmojiResults emojiData={this.state.filteredEmoji} />
