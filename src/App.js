@@ -1,9 +1,29 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import SearchInput from "./SearchInput";
-import EmojiResults from "./EmojiResults";
-import filterName from "./filterName";
+//import SearchInput from "./SearchInput";
+//import EmojiResults from "./EmojiResults";
+//import filterName from "./filterName";
+
+class SearchInput extends React.Component {
+  static propTypes = {
+    textChange: PropTypes.func
+  };
+
+  handleChange(event){
+    this.props.textChange(event);
+  };
+
+  render() {
+    return (
+      <div className="component-search-input">
+        <div>
+          <input onChange={this.handleChange} />
+        </div>
+      </div>
+    );
+  }
+}
 
 class App extends React.Component {
   constructor(props) {
