@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "babel-eslint": "^10.0.3",
+    "prop-types": "^15.7.2",
+    "clipboard": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "engines": {
     "node": "11.x"
