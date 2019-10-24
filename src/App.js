@@ -5,6 +5,7 @@ import Clipboard from "clipboard";
 //import SearchInput from "./SearchInput";
 //import EmojiResults from "./EmojiResults";
 //import filterName from "./filterName";
+
 import missingList from "../missingList.json";
 
 function filterName(searchText, maxResults) {
@@ -35,6 +36,34 @@ class SearchInput extends React.Component {
         <div>
           <input onChange={this.handleChange} />
         </div>
+      </div>
+    );
+  }
+}
+
+class Results extends React.Component {
+  static propTypes = {
+    nameData: PropTypes.array
+  };
+
+  componentDidMount() {
+    this.clipboard = new Clipboard(".copy-to-clipboard");
+  }
+
+  componentWillUnmount() {
+    this.clipboard.destroy();
+  }
+
+  render() {
+    return (
+      <div className="component-missing-results">
+        {this.props.nameData.map(function(nameData) {
+          <EmojiResultRow
+            key={emojiData.title}
+            symbol={emojiData.symbol}
+            title={emojiData.title}
+          />
+          })}
       </div>
     );
   }
