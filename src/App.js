@@ -10,9 +10,9 @@ class SearchInput extends React.Component {
     textChange: PropTypes.func
   };
 
-  handleChange(event){
+  handleChange(event) {
     this.props.textChange(event);
-  };
+  }
 
   render() {
     return (
