@@ -34,6 +34,7 @@
 
 .component-header img {
   position: center;
+  width: 60%;
 }
 
 .component-header h1 {
