@@ -4,6 +4,22 @@ import PropTypes from "prop-types";
 //import SearchInput from "./SearchInput";
 //import EmojiResults from "./EmojiResults";
 //import filterName from "./filterName";
+import List from "../missingList.json";
+
+function filterName(searchText, maxResults) {
+  return emojiList
+    .filter(emoji => {
+      if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
+        return true;
+      }
+      if (emoji.keywords.includes(searchText)) {
+        return true;
+      }
+      return false;
+    })
+    .slice(0, maxResults);
+}
+
 
 class SearchInput extends React.Component {
   static propTypes = {
