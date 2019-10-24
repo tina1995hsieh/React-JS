@@ -4,20 +4,18 @@ import PropTypes from "prop-types";
 //import SearchInput from "./SearchInput";
 //import EmojiResults from "./EmojiResults";
 //import filterName from "./filterName";
-import List from "../missingList.json";
+import missingList from "../missingList.json";
 
 function filterName(searchText, maxResults) {
-  return emojiList
-    .filter(emoji => {
-      if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
+  return missingList.filter(list => {
+      if (list.name.includes(searchText)) {
         return true;
       }
-      if (emoji.keywords.includes(searchText)) {
+      if (list.location.includes(searchText)) {
         return true;
       }
       return false;
-    })
-    .slice(0, maxResults);
+    }).slice(0, maxResults);
 }
 
 
