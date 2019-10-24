@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
+
 import SearchInput from "./SearchInput";
 import EmojiResults from "./EmojiResults";
 import filterName from "./filterName";
+
+class Header extends Component {
+  render() {
+    return (
+      <header className="component-header">
+        <img
+          src="//cdn.jsdelivr.net/emojione/assets/png/1f638.png"
+          width="32"
+          height="32"
+          alt=""
+        />
+        Emoji Search
+        <img
+          src="//cdn.jsdelivr.net/emojione/assets/png/1f63a.png"
+          width="32"
+          height="32"
+          alt=""
+        />
+      </header>
+    );
+  }
+}
+
 
 class App extends React.Component {
   constructor(props) {
