@@ -1,31 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import SearchInput from "./SearchInput";
 import EmojiResults from "./EmojiResults";
 import filterName from "./filterName";
-
-class Header extends Component {
-  render() {
-    return (
-      <header className="component-header">
-        <img
-          src="//cdn.jsdelivr.net/emojione/assets/png/1f638.png"
-          width="32"
-          height="32"
-          alt=""
-        />
-        Emoji Search
-        <img
-          src="//cdn.jsdelivr.net/emojione/assets/png/1f63a.png"
-          width="32"
-          height="32"
-          alt=""
-        />
-      </header>
-    );
-  }
-}
-
 
 class App extends React.Component {
   constructor(props) {
@@ -35,16 +13,30 @@ class App extends React.Component {
     };
   }
 
-  handleSearchChange(event){
+  handleSearchChange(event) {
     this.setState({
       filteredName: filterName(event.target.value, 50)
     });
-  };
+  }
 
   render() {
     return (
       <div>
-        <Header />
+        <header className="component-header">
+          <img
+            src="https://pngimage.net/wp-content/uploads/2018/06/missing-png.png"
+            width="32"
+            height="32"
+            alt="missing"
+          />
+          Missing People Search
+          <img
+            src="https://pngimage.net/wp-content/uploads/2018/06/missing-png.png"
+            width="32"
+            height="32"
+            alt="missing"
+          />
+        </header>
         <SearchInput textChange={this.handleSearchChange} />
         <EmojiResults NameData={this.state.filteredName} />
       </div>
