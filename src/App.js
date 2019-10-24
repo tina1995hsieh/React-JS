@@ -1,110 +1,55 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Clipboard from "clipboard";
+import React, { PureComponent } from "react";
+import Header from "./Header";
+import SearchInput from "./SearchInput";
+import EmojiResults from "./EmojiResults";
+import filterEmoji from "./filterEmoji";
 
-//import SearchInput from "./SearchInput";
-//import EmojiResults from "./EmojiResults";
-//import filterName from "./filterName";
-
-import missingList from "../missingList.json";
-
-function filterName(searchText, maxResults) {
-  return missingList.filter(list => {
-      if (list.name.includes(searchText)) {
-        return true;
-      }
-      if (list.location.includes(searchText)) {
-        return true;
-      }
-      return false;
-    }).slice(0, maxResults);
-}
-
-
-class SearchInput extends React.Component {
-  static propTypes = {
-    textChange: PropTypes.func
-  };
-
-  handleChange(event) {
-    this.props.textChange(event);
-  }
-
+class Header extends PureComponent {
   render() {
     return (
-      <div className="component-search-input">
-        <div>
-          <input onChange={this.handleChange} />
-        </div>
-      </div>
+      <header className="component-header">
+        <img
+          src="//cdn.jsdelivr.net/emojione/assets/png/1f638.png"
+          width="32"
+          height="32"
+          alt=""
+        />
+        Emoji Search
+        <img
+          src="//cdn.jsdelivr.net/emojione/assets/png/1f63a.png"
+          width="32"
+          height="32"
+          alt=""
+        />
+      </header>
     );
   }
 }
 
-class Results extends React.Component {
-  static propTypes = {
-    missingData: PropTypes.array
-  };
 
-  componentDidMount() {
-    this.clipboard = new Clipboard(".copy-to-clipboard");
-  }
-
-  componentWillUnmount() {
-    this.clipboard.destroy();
-  }
-
-  render() {
-    return (
-      <div className="component-missing-results">
-        {this.props.missingData.map(function(missingData) {
-          <EmojiResultRow
-            key={missingData.title}
-            symbol={missingData.symbol}
-            title={missingData.title}
-          />
-          })}
-      </div>
-    );
-  }
-}
-
-class App extends React.Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      filteredName: filterName("", 50)
+      filteredEmoji: filterEmoji("", 20)
     };
   }
 
-  handleSearchChange(event) {
+  handleSearchChange = event => {
     this.setState({
-      filteredName: filterName(event.target.value, 50)
+      filteredEmoji: filterEmoji(event.target.value, 20)
     });
-  }
+  };
 
   render() {
     return (
       <div>
-        <header className="component-header">
-          <img
-            src="https://pngimage.net/wp-content/uploads/2018/06/missing-png.png"
-            width="32"
-            height="32"
-            alt="missing"
-          />
-          Missing People Search
-          <img
-            src="https://pngimage.net/wp-content/uploads/2018/06/missing-png.png"
-            width="32"
-            height="32"
-            alt="missing"
-          />
-        </header>
+        <Header />
         <SearchInput textChange={this.handleSearchChange} />
-        <Results missingData={this.state.filteredName} />
+        <EmojiResults emojiData={this.state.filteredEmoji} />
       </div>
     );
   }
 }
-export default App;
+
+export default /App;
