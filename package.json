@@ -2,12 +2,15 @@
   "name": "starter-react-app",
   "version": "1.0.0",
   "private": true,
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.17.1",
+    "react-scripts": "^3.0.1"
+  },
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1",
-    "babel-eslint": "^10.0.3",
-    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.2.0",
     "clipboard": "^2.0.4"
   },
   "scripts": {
