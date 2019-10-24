@@ -64,3 +64,40 @@
   padding: 10px 8px;
   width: 100%;
 }
+
+.component-missing-result-row {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  height: 32px;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.component-missing-result-row:hover {
+  background-color: #eee;
+}
+
+.component-missing-result-row img {
+  width: 32px;
+  height: 32px;
+  padding-right: 10px;
+}
+
+.component-missing-result-row .title {
+  position: relative;
+  top: -8px;
+}
+
+.component-missing-result-row .info {
+  float: right;
+  position: relative;
+  top: 8px;
+  right: 10px;
+  color: #ccc;
+  display: none;
+}
+
+.component-missing-result-row:hover .info {
+  display: inline-block;
+}

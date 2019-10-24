@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Clipboard from "clipboard";
 
 //import SearchInput from "./SearchInput";
 //import EmojiResults from "./EmojiResults";
@@ -72,7 +73,7 @@ class App extends React.Component {
           />
         </header>
         <SearchInput textChange={this.handleSearchChange} />
-        <EmojiResults NameData={this.state.filteredName} />
+        <Results NameData={this.state.filteredName} />
       </div>
     );
   }
