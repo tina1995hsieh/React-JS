@@ -10,13 +10,13 @@ function filterMissing(searchText, maxResults) {
       if (
         personal.name.first.toLowerCase().includes(searchText.toLowerCase())
       ) {
-        if (
+        return true;
+      }
+      if (
           personal.name.last.toLowerCase().includes(searchText.toLowerCase())
         ) {
           return true;
         }
-        return true;
-      }
       if (personal.phone.includes(searchText)) {
         return true;
       }
