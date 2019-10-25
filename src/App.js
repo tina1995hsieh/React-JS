@@ -6,7 +6,7 @@ import "./App.css";
 
 function filterMissing(searchText, maxResults) {
   return emojiList
-    .filter(emoji => {
+    .filter(function (emoji){
       if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
@@ -75,7 +75,7 @@ class SearchInput extends PureComponent {
     textChange: PropTypes.func
   };
 
-  handleChange = event => {
+  handleChange (event) {
     this.props.textChange(event);
   };
 
@@ -94,13 +94,13 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      filtered: filter("", 20)
+      filtered: filterMissing("", 100)
     };
   }
 
-  handleSearchChange = event => {
+  handleSearchChange (event) {
     this.setState({
-      filtered: filter(event.target.value, 20)
+      filtered: filterMissing(event.target.value, 100)
     });
   };
 
@@ -114,7 +114,7 @@ class App extends PureComponent {
           />
         </header>
         <SearchInput textChange={this.handleSearchChange} />
-        <EmojiResults emojiData={this.state.filteredEmoji} />
+        <EmojiResults emojiData={this.state.filtered} />
       </div>
     );
   }
