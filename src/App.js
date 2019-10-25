@@ -85,6 +85,10 @@ class Results extends Component {
             first={Data.name.first}
             last={Data.name.last}
             picture={Data.picture.medium}
+            picture={Data.picture.medium}
+            picture={Data.picture.medium}
+            picture={Data.picture.medium}
+            picture={Data.picture.medium}
           />)
             
         })}
