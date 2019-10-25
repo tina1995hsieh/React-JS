@@ -57,13 +57,15 @@ class Results extends Component {
   render() {
     return (
       <div className="component-emoji-results">
-        {this.props.Data.map(Data => (
-          <EmojiResultsRow
+        {this.props.Data.map(function(Data) {
+          return
+          (<EmojiResultsRow
             key={Data.title}
             symbol={Data.symbol}
             title={Data.title}
-          />
-        ))}
+          />)
+            
+        })}
       </div>
     );
   }
