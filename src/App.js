@@ -78,7 +78,7 @@ class ResultsRow extends Component {
           <li class="list-group-item">State: {this.props.missingState}</li>
           <li class="list-group-item">Country: {this.props.missingCountry}</li>
         </ul>
-        
+        <p>Contact phone: {this.props.contact}</p>
         <span className="info">Click to copy the name</span>
       </div>
     );
