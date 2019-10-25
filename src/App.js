@@ -57,25 +57,25 @@ class Results extends PureComponent {
   render() {
     return (
       <div className="component-emoji-results">
-        {this.props.Data.map(function (Data) {
+        {this.props.Data.map(Data => (
           <EmojiResultsRow
             key={Data.title}
             symbol={Data.symbol}
-            title={emData.title}
+            title={Data.title}
           />
-        })}
+        ))}
       </div>
     );
   }
 }
 
 
-class Search extends PureComponent {
+class Search extends Component {
   static propTypes = {
     text: PropTypes.func
   };
 
-  handleChange (event) {
+  handleChange = event => {
     this.props.text(event);
   };
 
@@ -90,7 +90,7 @@ class Search extends PureComponent {
   }
 }
 
-class App extends PureComponent {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,7 +98,7 @@ class App extends PureComponent {
     };
   }
 
-  handleSearchChange (event) {
+  handleSearchChange = event => {
     this.setState({
       filtered: filterMissing(event.target.value, 100)
     });
@@ -114,7 +114,7 @@ class App extends PureComponent {
           />
         </header>
         <Search text={this.handleSearchChange} />
-        <Results emojiData={this.state.filtered} />
+        <Results Data={this.state.filtered} />
       </div>
     );
   }
