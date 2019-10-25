@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Clipboard from "clipboard";
-import emojiList from "./emojiList.json";
+import missingList from "./missingList.json";
 import "./App.css";
 
 function filterMissing(searchText, maxResults) {
-  return emojiList
+  return missingList
     .filter(function (personal){
-      if (personal.title.toLowerCase().includes(searchText.toLowerCase())) {
+      if (personal..toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
       if (personal.keywords.includes(searchText)) {
