@@ -84,11 +84,12 @@ class Results extends Component {
           return(<ResultsRow
             first={Data.name.first}
             last={Data.name.last}
+            missingcity={Data.location.city}
+            missingState={Data.location.state}
+            missingCountry={Data.location.country}
+            gender={Data.gender}
             picture={Data.picture.medium}
-            picture={Data.picture.medium}
-            picture={Data.picture.medium}
-            picture={Data.picture.medium}
-            picture={Data.picture.medium}
+            contact={Data.phone}
           />)
             
         })}
