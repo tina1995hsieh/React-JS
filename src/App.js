@@ -17,7 +17,7 @@ function filterMissing(searchText, maxResults) {
         }
         return true;
       }
-      if (personal.nat.includes(searchText)) {
+      if (personal.phone.includes(searchText)) {
         return true;
       }
       return false;
