@@ -8,10 +8,11 @@ function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function(personal) {
       const fullName = personal.name.first + " " + personal.name.last;
+      const missingPlace = [personal.location.city.toLowerCase(), personal.location.state.toLowerCase(), personal.location.country.toLowerCase()];
       if (fullName.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
-      if (personal.phone.includes(searchText)) {
+      if (missingPlace.includes(searchText.toLowerCase())) {
         return true;
       }
       return false;
@@ -33,7 +34,7 @@ class Search extends Component {
       <div className="search">
         <div>
           <input
-            placeholder="Search the missing people"
+            placeholder="Search the missing people by name or missing place..."
             onChange={this.handleChange}
           />
         </div>
@@ -59,7 +60,7 @@ class ResultsRow extends Component {
     return (
       <div
         className="result-row copy-to-clipboard .col-lg-2 col-md-3 col-sm-6"
-        data-clipboard-text={name}
+        data-clipboard-text={phoneNumber}
       >
         <div className="card">
           <img alt={this.props.first} src={this.props.picture} />
@@ -126,14 +127,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtered: filterMissing("", 50),
+      filtered: filterMissing("", 300),
       gender: false
     };
   }
 
   handleSearchChange = event => {
     this.setState({
-      filtered: filterMissing(event.target.value, 50)
+      filtered: filterMissing(event.target.value, 300)
     });
   };
 
