@@ -7,10 +7,10 @@ import "./App.css";
 function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function (personal){
-      if (personal..toLowerCase().includes(searchText.toLowerCase())) {
+      if (personal.name.first.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
-      if (personal.keywords.includes(searchText)) {
+      if (personal.nat.includes(searchText)) {
         return true;
       }
       return false;
@@ -45,14 +45,14 @@ class ResultsRow extends Component {
   };
 
   render() {
-    const codePointHex = this.props.symbol.codePointAt(0).toString(16);
-    const src = `https://cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`;
+    //const codePointHex = this.props.symbol.codePointAt(0).toString(16);
+    //const src = `https://cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`;
     return (
       <div
         className="component-emoji-result-row copy-to-clipboard"
         data-clipboard-text={this.props.symbol}
       >
-        <img alt={this.props.title} src={src} />
+        <img alt={this.props.title} src={this.props.picture.medium} />
         <span className="title">{this.props.title}</span>
         <span className="info">Click to copy data</span>
       </div>
@@ -78,9 +78,9 @@ class Results extends Component {
       <div className="component-emoji-results">
         {this.props.Data.map(function(Data) {
           return(<ResultsRow
-            key={Data.title}
-            symbol={Data.symbol}
-            title={Data.title}
+            first={Data.name.first}
+            last={Data.name.last}
+            picture={Data.picture.medium}
           />)
             
         })}
@@ -93,13 +93,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtered: filterMissing("", 100)
+      filtered: filterMissing("", 20)
     };
   }
 
   handleSearchChange = event => {
     this.setState({
-      filtered: filterMissing(event.target.value, 100)
+      filtered: filterMissing(event.target.value, 20)
     });
   };
 
