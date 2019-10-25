@@ -6,9 +6,13 @@ import "./App.css";
 
 function filterMissing(searchText, maxResults) {
   return missingList
-    .filter(function (personal){
-      if (personal.name.first.toLowerCase().includes(searchText.toLowerCase())) {
-        if (personal.name.last.toLowerCase().includes(searchText.toLowerCase())) {
+    .filter(function(personal) {
+      if (
+        personal.name.first.toLowerCase().includes(searchText.toLowerCase())
+      ) {
+        if (
+          personal.name.last.toLowerCase().includes(searchText.toLowerCase())
+        ) {
           return true;
         }
         return true;
@@ -34,7 +38,10 @@ class Search extends Component {
     return (
       <div className="component-search-input">
         <div>
-          <input placeholder="Search the missing people" onChange={this.handleChange} />
+          <input
+            placeholder="Search the missing people"
+            onChange={this.handleChange}
+          />
         </div>
       </div>
     );
@@ -45,8 +52,12 @@ class ResultsRow extends Component {
   static propTypes = {
     first: PropTypes.string,
     last: PropTypes.string,
-    picture: PropTypes.string
-    
+    picture: PropTypes.string,
+    missingcity: PropTypes.string,
+    missingState: PropTypes.string,
+    missingCountry: PropTypes.string,
+    gender: PropTypes.string,
+    contact: PropTypes.string
   };
 
   render() {
@@ -54,11 +65,14 @@ class ResultsRow extends Component {
     return (
       <div
         className="component-emoji-result-row copy-to-clipboard"
-        data-clipboard-text= {name}
+        data-clipboard-text={name}
       >
         <img alt={this.props.first} src={this.props.picture} />
-        <span className="name">{this.props.first} {this.props.last}  </span>
-        <span className="info">Click to copy data</span>
+        <span className="name">
+          {this.props.first} {this.props.last}{" "}
+        </span>
+        
+        <span className="info">Click to copy the name</span>
       </div>
     );
   }
@@ -81,17 +95,18 @@ class Results extends Component {
     return (
       <div className="component-emoji-results">
         {this.props.Data.map(function(Data) {
-          return(<ResultsRow
-            first={Data.name.first}
-            last={Data.name.last}
-            missingcity={Data.location.city}
-            missingState={Data.location.state}
-            missingCountry={Data.location.country}
-            gender={Data.gender}
-            picture={Data.picture.medium}
-            contact={Data.phone}
-          />)
-            
+          return (
+            <ResultsRow
+              first={Data.name.first}
+              last={Data.name.last}
+              missingcity={Data.location.city}
+              missingState={Data.location.state}
+              missingCountry={Data.location.country}
+              gender={Data.gender}
+              picture={Data.picture.medium}
+              contact={Data.phone}
+            />
+          );
         })}
       </div>
     );
