@@ -8,12 +8,17 @@ function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function(personal) {
       if (
-        personal.name.first.toLowerCase().includes(searchText.toLowerCase())
+        personal.name.first.toLowerCase().includes(searchText.toLowerCase().trim())
       ) {
+        if (
+          personal.name.last.toLowerCase().includes(searchText.toLowerCase().trim())
+        ) {
+          return true;
+        }
         return true;
       }
       if (
-          personal.name.last.toLowerCase().includes(searchText.toLowerCase())
+          personal.name.last.toLowerCase().includes(searchText.toLowerCase().trim())
         ) {
           return true;
         }
