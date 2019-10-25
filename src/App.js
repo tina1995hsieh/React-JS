@@ -50,15 +50,14 @@ class ResultsRow extends Component {
   };
 
   render() {
-    //const codePointHex = this.props.symbol.codePointAt(0).toString(16);
-    //const src = `https://cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`;
+    const name = this.props.first + " " + this.props.last;
     return (
       <div
         className="component-emoji-result-row copy-to-clipboard"
-        data-clipboard-text={this.props.first} 
+        data-clipboard-text= {name}
       >
         <img alt={this.props.first} src={this.props.picture} />
-        <span className="name">{this.props.first} {this.props.last}  </span>
+        <h3 className="name">{this.props.first} {this.props.last}  </h3>
         <span className="info">Click to copy data</span>
       </div>
     );
