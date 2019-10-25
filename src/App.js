@@ -6,11 +6,11 @@ import "./App.css";
 
 function filterMissing(searchText, maxResults) {
   return emojiList
-    .filter(function (emoji){
-      if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
+    .filter(function (personal){
+      if (personal.title.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
-      if (emoji.keywords.includes(searchText)) {
+      if (personal.keywords.includes(searchText)) {
         return true;
       }
       return false;
