@@ -57,8 +57,7 @@ class ResultsRow extends Component {
   render() {
     const name = this.props.first + " " + this.props.last;
     return (
-      <div className="result-row copy-to-clipboard" data-clipboard-text={name}>
-        <div className="col-md-3 col-sm-6">
+      <div className="result-row copy-to-clipboard col-md-3 col-sm-6" data-clipboard-text={name}>
           <div className="card">
             <img alt={this.props.first} src={this.props.picture} />
             <div className="content">
@@ -75,7 +74,6 @@ class ResultsRow extends Component {
               <p>Contact phone: {this.props.contact}</p>
               <span className="info">Click to copy the name</span>
             </div>
-          </div>
         </div>
       </div>
     );
@@ -98,6 +96,7 @@ class Results extends Component {
   render() {
     return (
       <div className="container">
+        
         {this.props.Data.map(function(Data) {
           return (
             <ResultsRow

@@ -80,7 +80,7 @@ html {
 }
 
 .result-row img {
-  padding-right: 10px;
+  width:100%;
 }
 
 .result-row .name {
@@ -91,12 +91,10 @@ html {
 .result-row .info {
   float: right;
   position: relative;
-  right: 0px;
-  border: none;
+  border-radius: 5px;
   outline: 0;
-  padding: 8px;
+  padding: 10px;
   color: white;
-  background-color: #000;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -105,6 +103,7 @@ html {
 
 .result-row:hover .info {
   display: inline-block;
+  background-color: #555;
 }
 
 .card {
@@ -114,8 +113,16 @@ html {
   padding: 0 16px;
 }
 
-.content::after, .row::after {
+.content::after, .result-row::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.gender {
+  color: grey;
+}
+
+li{
+  list-style-type: none;
 }
