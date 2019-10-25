@@ -83,7 +83,7 @@ class SearchInput extends PureComponent {
     return (
       <div className="component-search-input">
         <div>
-          <input onChange={this.handleChange} />
+          <input placeholder="Search the missing people" onChange={this.handleChange} />
         </div>
       </div>
     );
@@ -110,7 +110,7 @@ class App extends PureComponent {
         <header className="component-header">
           <img
             src="https://acenewsdesk.files.wordpress.com/2014/12/bvyhgl.jpg"
-            alt=""
+            alt="missing-ppl"
           />
         </header>
         <SearchInput textChange={this.handleSearchChange} />
