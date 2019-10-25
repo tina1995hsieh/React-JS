@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Clipboard from "clipboard";
 import emojiList from "./emojiList.json";
@@ -19,7 +19,7 @@ function filterMissing(searchText, maxResults) {
 }
 
 
-class EmojiResultsRow extends PureComponent {
+class EmojiResultsRow extends Component {
   static propTypes = {
     title: PropTypes.string,
     symbol: PropTypes.string
@@ -41,7 +41,7 @@ class EmojiResultsRow extends PureComponent {
   }
 }
 
-class Results extends PureComponent {
+class Results extends Component {
   static propTypes = {
     Data: PropTypes.array
   };
