@@ -22,7 +22,7 @@ function filterMissing(searchText, maxResults) {
 class Search extends Component {
   static propTypes = {
     text: PropTypes.func,
-    gender: PropTypes.bool
+    gender: PropTypes.string
   };
 
   handleTextChange = event => {
@@ -124,7 +124,7 @@ class App extends Component {
     super(props);
     this.state = {
       filtered: filterMissing("", 20),
-      gender: false
+      gender: 
     };
   }
 
