@@ -58,22 +58,24 @@ class ResultsRow extends Component {
     const name = this.props.first + " " + this.props.last;
     return (
       <div className="result-row copy-to-clipboard" data-clipboard-text={name}>
-        <div class="col-md-3 col-sm-6">
-          <img alt={this.props.first} src={this.props.picture} />
-          <span className="name">
-            {this.props.first} {this.props.last}
-          </span>
-          <p>Gender: {this.props.gender}</p>
-          <p>Missing Location:</p>
-          <ul class="list-group">
-            <li class="list-group-item">City: {this.props.missingCity}</li>
-            <li class="list-group-item">State: {this.props.missingState}</li>
-            <li class="list-group-item">
-              Country: {this.props.missingCountry}
-            </li>
-          </ul>
-          <p>Contact phone: {this.props.contact}</p>
-          <span className="info">Click to copy the name</span>
+        <div className="col-md-3 col-sm-6">
+          <div className="card">
+            <img alt={this.props.first} src={this.props.picture} />
+            <div className="content">
+              <h2 className="name">
+                {this.props.first} {this.props.last}
+              </h2>
+              <p className="gender">Gender: {this.props.gender}</p>
+              <p>Missing Location:</p>
+              <ul class="list-group">
+                <li class="list-group-item">City: {this.props.missingCity}</li>
+                <li class="list-group-item">State: {this.props.missingState}</li>
+                <li class="list-group-item">Country: {this.props.missingCountry}</li>
+              </ul>
+              <p>Contact phone: {this.props.contact}</p>
+              <span className="info">Click to copy the name</span>
+            </div>
+          </div>
         </div>
       </div>
     );

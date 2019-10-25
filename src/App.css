@@ -1,3 +1,11 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .App {
   text-align: center;
 }
@@ -83,12 +91,31 @@
 .result-row .info {
   float: right;
   position: relative;
-  top:10px;
   right: 0px;
-  color: #ccc;
+  border: none;
+  outline: 0;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
   display: none;
 }
 
 .result-row:hover .info {
-  display: inline;
+  display: inline-block;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.content {
+  padding: 0 16px;
+}
+
+.content::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
