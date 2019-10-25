@@ -55,7 +55,7 @@ class ResultsRow extends Component {
     return (
       <div
         className="component-emoji-result-row copy-to-clipboard"
-        data-clipboard-text={this.props.symbol}
+        data-clipboard-text={this.props.first} + {this.props.first}
       >
         <img alt={this.props.first} src={this.props.picture} />
         <span className="name">{this.props.first} {this.props.last}  </span>
