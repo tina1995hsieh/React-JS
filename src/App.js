@@ -7,7 +7,6 @@ import "./App.css";
 function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function(personal) {
-
       const fullName = personal.name.first + " " + personal.name.last;
       if (fullName.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
@@ -22,11 +21,16 @@ function filterMissing(searchText, maxResults) {
 
 class Search extends Component {
   static propTypes = {
-    text: PropTypes.func
+    text: PropTypes.func,
+    gender: PropTypes.bool
   };
 
-  handleChange = event => {
+  handleTextChange = event => {
     this.props.text(event);
+  };
+
+  handleGenderChange = event => {
+    this.props.gender(event);
   };
 
   render() {
@@ -35,7 +39,7 @@ class Search extends Component {
         <div>
           <input
             placeholder="Search the missing people"
-            onChange={this.handleChange}
+            onChange={this.handleTextChange}
           />
         </div>
       </div>
@@ -130,7 +134,7 @@ class App extends Component {
     });
   };
 
-handleGenderChange = gender => {
+  handleGenderChange = gender => {
     this.setState({
       gender: gender
     });
@@ -145,8 +149,11 @@ handleGenderChange = gender => {
             alt="missing-ppl"
           />
         </header>
-        <Search text={this.handleSearchChange} gneder = {this.handleGenderChange}/>
-        <Results Data={this.state.filtered} />
+        <Search
+          text={this.handleSearchChange}
+          gender={this.handleGenderChange}
+        />
+        <Results Data={this.state.filtered} sex={this.state.gender} />
       </div>
     );
   }
