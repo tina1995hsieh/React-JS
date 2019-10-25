@@ -57,23 +57,28 @@ class ResultsRow extends Component {
   render() {
     const name = this.props.first + " " + this.props.last;
     return (
-      <div className="result-row copy-to-clipboard col-md-3 col-sm-6" data-clipboard-text={name}>
-          <div className="card">
-            <img alt={this.props.first} src={this.props.picture} />
-            <div className="content">
-              <h2 className="name">
-                {this.props.first} {this.props.last}
-              </h2>
-              <p className="gender">Gender: {this.props.gender}</p>
-              <p>Missing Location:</p>
-              <ul class="list-group">
-                <li class="list-group-item">City: {this.props.missingCity}</li>
-                <li class="list-group-item">State: {this.props.missingState}</li>
-                <li class="list-group-item">Country: {this.props.missingCountry}</li>
-              </ul>
-              <p>Contact phone: {this.props.contact}</p>
-              <span className="info">Click to copy the name</span>
-            </div>
+      <div
+        className="result-row copy-to-clipboard .col-lg-2 col-md-3 col-sm-6"
+        data-clipboard-text={name}
+      >
+        <div className="card">
+          <img alt={this.props.first} src={this.props.picture} />
+          <div className="content">
+            <h2 className="name">
+              {this.props.first} {this.props.last}
+            </h2>
+            <mark>Gender: {this.props.gender}</mark>
+            <p>Missing Location:</p>
+            <ul class="list-group">
+              <li class="list-group-item">City: {this.props.missingCity}</li>
+              <li class="list-group-item">State: {this.props.missingState}</li>
+              <li class="list-group-item">
+                Country: {this.props.missingCountry}
+              </li>
+            </ul>
+            <p>Contact phone: {this.props.contact}</p>
+            <span className="info">Click to copy the name</span>
+          </div>
         </div>
       </div>
     );
@@ -96,21 +101,22 @@ class Results extends Component {
   render() {
     return (
       <div className="container">
-        
-        {this.props.Data.map(function(Data) {
-          return (
-            <ResultsRow
-              first={Data.name.first}
-              last={Data.name.last}
-              missingCity={Data.location.city}
-              missingState={Data.location.state}
-              missingCountry={Data.location.country}
-              gender={Data.gender}
-              picture={Data.picture.large}
-              contact={Data.phone}
-            />
-          );
-        })}
+        <div className="row">
+          {this.props.Data.map(function(Data) {
+            return (
+              <ResultsRow
+                first={Data.name.first}
+                last={Data.name.last}
+                missingCity={Data.location.city}
+                missingState={Data.location.state}
+                missingCountry={Data.location.country}
+                gender={Data.gender}
+                picture={Data.picture.large}
+                contact={Data.phone}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
