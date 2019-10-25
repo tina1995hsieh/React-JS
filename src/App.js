@@ -119,13 +119,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtered: filterMissing("", 20)
+      filtered: filterMissing("", 20),
+      gender: false
     };
   }
 
   handleSearchChange = event => {
     this.setState({
       filtered: filterMissing(event.target.value, 20)
+    });
+  };
+
+handleGenderChange = gender => {
+    this.setState({
+      gender: gender
     });
   };
 
@@ -138,7 +145,7 @@ class App extends Component {
             alt="missing-ppl"
           />
         </header>
-        <Search text={this.handleSearchChange} />
+        <Search text={this.handleSearchChange} gneder = {this.handleGenderChange}/>
         <Results Data={this.state.filtered} />
       </div>
     );
