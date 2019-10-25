@@ -55,7 +55,7 @@ class ResultsRow extends Component {
   };
 
   render() {
-    const name = this.props.first + " " + this.props.last;
+    const phoneNumber = this.props.contact;
     return (
       <div
         className="result-row copy-to-clipboard .col-lg-2 col-md-3 col-sm-6"
@@ -77,7 +77,7 @@ class ResultsRow extends Component {
               </li>
             </ul>
             <p>Contact phone: {this.props.contact}</p>
-            <span className="info">Click to copy the name</span>
+            <span className="info">Click to copy the phone numbers</span>
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className="header">
+        <header className="header col-md-12 col-sm-12">
           <img
             src="https://acenewsdesk.files.wordpress.com/2014/12/bvyhgl.jpg"
             alt="missing-ppl"
