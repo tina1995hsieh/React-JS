@@ -7,21 +7,11 @@ import "./App.css";
 function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function(personal) {
-      if (
-        personal.name.first.toLowerCase().includes(searchText.toLowerCase().trim())
-      ) {
-        if (
-          personal.name.last.toLowerCase().includes(searchText.toLowerCase().trim())
-        ) {
-          return true;
-        }
+
+      const fullName = personal.name.first + " " + personal.name.last;
+      if (fullName.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
-      if (
-          personal.name.last.toLowerCase().includes(searchText.toLowerCase().trim())
-        ) {
-          return true;
-        }
       if (personal.phone.includes(searchText)) {
         return true;
       }
