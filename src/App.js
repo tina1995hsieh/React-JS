@@ -53,7 +53,7 @@ class ResultsRow extends Component {
     first: PropTypes.string,
     last: PropTypes.string,
     picture: PropTypes.string,
-    missingcity: PropTypes.string,
+    missingCity: PropTypes.string,
     missingState: PropTypes.string,
     missingCountry: PropTypes.string,
     gender: PropTypes.string,
@@ -69,8 +69,15 @@ class ResultsRow extends Component {
       >
         <img alt={this.props.first} src={this.props.picture} />
         <span className="name">
-          {this.props.first} {this.props.last}{" "}
+          {this.props.first} {this.props.last}
         </span>
+        <p>Gender: {this.props.gender}</p>
+        <p>Missing Location:</p>
+        <ul class="list-group">
+          <li class="list-group-item">City: {this.props.missingCity}</li>
+          <li class="list-group-item">State: {this.props.missingState}</li>
+          <li class="list-group-item">Country: {this.props.missingCountry}</li>
+        </ul>
         
         <span className="info">Click to copy the name</span>
       </div>
@@ -99,7 +106,7 @@ class Results extends Component {
             <ResultsRow
               first={Data.name.first}
               last={Data.name.last}
-              missingcity={Data.location.city}
+              missingCity={Data.location.city}
               missingState={Data.location.state}
               missingCountry={Data.location.country}
               gender={Data.gender}
