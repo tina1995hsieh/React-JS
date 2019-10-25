@@ -38,6 +38,56 @@ class Search extends Component {
   }
 }
 
+class ResultsRow extends Component {
+  static propTypes = {
+    title: PropTypes.string,
+    symbol: PropTypes.string
+  };
+
+  render() {
+    const codePointHex = this.props.symbol.codePointAt(0).toString(16);
+    const src = `https://cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`;
+    return (
+      <div
+        className="component-emoji-result-row copy-to-clipboard"
+        data-clipboard-text={this.props.symbol}
+      >
+        <img alt={this.props.title} src={src} />
+        <span className="title">{this.props.title}</span>
+        <span className="info">Click to copy data</span>
+      </div>
+    );
+  }
+}
+
+class Results extends Component {
+  static propTypes = {
+    Data: PropTypes.array
+  };
+
+  componentDidMount() {
+    this.clipboard = new Clipboard(".copy-to-clipboard");
+  }
+
+  componentWillUnmount() {
+    this.clipboard.destroy();
+  }
+
+  render() {
+    return (
+      <div className="component-emoji-results">
+        {this.props.Data.map(function(Data) {
+          return(<ResultsRow
+            key={Data.title}
+            symbol={Data.symbol}
+            title={Data.title}
+          />)
+            
+        })}
+      </div>
+    );
+  }
+}
 
 class App extends Component {
   constructor(props) {
