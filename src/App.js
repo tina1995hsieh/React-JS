@@ -7,7 +7,6 @@ import "./App.css";
 function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function(personal) {
-
       const fullName = personal.name.first + " " + personal.name.last;
       if (fullName.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
@@ -58,23 +57,24 @@ class ResultsRow extends Component {
   render() {
     const name = this.props.first + " " + this.props.last;
     return (
-      <div
-        className="result-row copy-to-clipboard"
-        data-clipboard-text={name}
-      >
-        <img alt={this.props.first} src={this.props.picture} />
-        <span className="name">
-          {this.props.first} {this.props.last}
-        </span>
-        <p>Gender: {this.props.gender}</p>
-        <p>Missing Location:</p>
-        <ul class="list-group">
-          <li class="list-group-item">City: {this.props.missingCity}</li>
-          <li class="list-group-item">State: {this.props.missingState}</li>
-          <li class="list-group-item">Country: {this.props.missingCountry}</li>
-        </ul>
-        <p>Contact phone: {this.props.contact}</p>
-        <span className="info">Click to copy the name</span>
+      <div className="result-row copy-to-clipboard" data-clipboard-text={name}>
+        <div class="col-md-3 col-sm-6">
+          <img alt={this.props.first} src={this.props.picture} />
+          <span className="name">
+            {this.props.first} {this.props.last}
+          </span>
+          <p>Gender: {this.props.gender}</p>
+          <p>Missing Location:</p>
+          <ul class="list-group">
+            <li class="list-group-item">City: {this.props.missingCity}</li>
+            <li class="list-group-item">State: {this.props.missingState}</li>
+            <li class="list-group-item">
+              Country: {this.props.missingCountry}
+            </li>
+          </ul>
+          <p>Contact phone: {this.props.contact}</p>
+          <span className="info">Click to copy the name</span>
+        </div>
       </div>
     );
   }
@@ -95,7 +95,7 @@ class Results extends Component {
 
   render() {
     return (
-      <div className="results">
+      <div className="container">
         {this.props.Data.map(function(Data) {
           return (
             <ResultsRow
@@ -105,7 +105,7 @@ class Results extends Component {
               missingState={Data.location.state}
               missingCountry={Data.location.country}
               gender={Data.gender}
-              picture={Data.picture.medium}
+              picture={Data.picture.large}
               contact={Data.phone}
             />
           );
@@ -130,7 +130,7 @@ class App extends Component {
     });
   };
 
-handleGenderChange = gender => {
+  handleGenderChange = gender => {
     this.setState({
       gender: gender
     });
@@ -145,8 +145,11 @@ handleGenderChange = gender => {
             alt="missing-ppl"
           />
         </header>
-        <Search text={this.handleSearchChange} gender = {this.handleGenderChange}/>
-        <Results Data={this.state.filtered} sex={this.state.gender}/>
+        <Search
+          text={this.handleSearchChange}
+          gender={this.handleGenderChange}
+        />
+        <Results Data={this.state.filtered} sex={this.state.gender} />
       </div>
     );
   }
