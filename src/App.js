@@ -4,7 +4,7 @@ import Clipboard from "clipboard";
 import emojiList from "./emojiList.json";
 import "./App.css";
 
-function filterEmoji(searchText, maxResults) {
+function filterMissing(searchText, maxResults) {
   return emojiList
     .filter(emoji => {
       if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
@@ -94,13 +94,13 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      filteredEmoji: filterEmoji("", 20)
+      filtered: filter("", 20)
     };
   }
 
   handleSearchChange = event => {
     this.setState({
-      filteredEmoji: filterEmoji(event.target.value, 20)
+      filtered: filter(event.target.value, 20)
     });
   };
 
