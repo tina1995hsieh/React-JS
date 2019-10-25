@@ -77,6 +77,7 @@
 
 .component-emoji-result-row .name {
   position: relative;
+  font-size:60px;
 }
 
 .component-emoji-result-row .info {

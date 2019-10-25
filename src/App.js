@@ -57,7 +57,7 @@ class ResultsRow extends Component {
         data-clipboard-text= {name}
       >
         <img alt={this.props.first} src={this.props.picture} />
-        <h3 className="name">{this.props.first} {this.props.last}  </h3>
+        <span className="name">{this.props.first} {this.props.last}  </span>
         <span className="info">Click to copy data</span>
       </div>
     );
