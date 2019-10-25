@@ -8,6 +8,9 @@ function filterMissing(searchText, maxResults) {
   return missingList
     .filter(function (personal){
       if (personal.name.first.toLowerCase().includes(searchText.toLowerCase())) {
+        if (personal.name.last.toLowerCase().includes(searchText.toLowerCase())) {
+          return true;
+        }
         return true;
       }
       if (personal.nat.includes(searchText)) {
@@ -40,8 +43,10 @@ class Search extends Component {
 
 class ResultsRow extends Component {
   static propTypes = {
-    title: PropTypes.string,
-    symbol: PropTypes.string
+    first: PropTypes.string,
+    last: PropTypes.string,
+    picture: PropTypes.string
+    
   };
 
   render() {
@@ -52,8 +57,8 @@ class ResultsRow extends Component {
         className="component-emoji-result-row copy-to-clipboard"
         data-clipboard-text={this.props.symbol}
       >
-        <img alt={this.props.title} src={this.props.picture.medium} />
-        <span className="title">{this.props.title}</span>
+        <img alt={this.props.first} src={this.props.picture} />
+        <span className="name">{this.props.first} {this.props.last}  </span>
         <span className="info">Click to copy data</span>
       </div>
     );

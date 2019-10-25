@@ -73,20 +73,20 @@
 }
 
 .component-emoji-result-row img {
-  width: 32px;
-  height: 32px;
+  width: 30%;
+  height: ;
   padding-right: 10px;
 }
 
-.component-emoji-result-row .title {
+.component-emoji-result-row .name {
   position: relative;
-  top: -8px;
+  top: -10px;
 }
 
 .component-emoji-result-row .info {
   float: right;
   position: relative;
-  top: 8px;
+  top:10px;
   right: 10px;
   color: #ccc;
   display: none;
