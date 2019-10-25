@@ -32,25 +32,25 @@
   }
 }
 
-.component-header img {
+.header img {
   display:block; 
   margin:auto;
   width: 50%;
 }
 
-.component-header h1 {
+.header h1 {
   text-shadow: 0px 0px 8px #423f4f;
 }
 
-.component-search-input {
+.search {
   border-bottom: 1px solid #ccc;
 }
 
-.component-search-input > div {
+.search > div {
   margin: 0 10px 10px 10px;
 }
 
-.component-search-input input {
+.search input {
   border-radius: 4px;
   border: 1px solid #bbb;
   box-sizing: border-box;
@@ -59,7 +59,7 @@
   width: 100%;
 }
 
-.component-emoji-result-row {
+.result-row {
   border-bottom: 1px solid #ccc;
   padding: 10px;
   position: relative;
@@ -67,28 +67,28 @@
   cursor: pointer;
 }
 
-.component-emoji-result-row:hover {
+.result-row:hover {
   background-color: #eee;
 }
 
-.component-emoji-result-row img {
+.result-row img {
   padding-right: 10px;
 }
 
-.component-emoji-result-row .name {
+.result-row .name {
   position: relative;
   font-size: 50px;
 }
 
-.component-emoji-result-row .info {
+.result-row .info {
   float: right;
   position: relative;
   top:10px;
-  right: 10px;
+  right: 0px;
   color: #ccc;
   display: none;
 }
 
-.component-emoji-result-row:hover .info {
-  display: inline-block;
+.result-row:hover .info {
+  display: inline;
 }

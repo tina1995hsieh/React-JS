@@ -31,7 +31,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="component-search-input">
+      <div className="search">
         <div>
           <input
             placeholder="Search the missing people"
@@ -59,7 +59,7 @@ class ResultsRow extends Component {
     const name = this.props.first + " " + this.props.last;
     return (
       <div
-        className="component-emoji-result-row copy-to-clipboard"
+        className="result-row copy-to-clipboard"
         data-clipboard-text={name}
       >
         <img alt={this.props.first} src={this.props.picture} />
@@ -95,7 +95,7 @@ class Results extends Component {
 
   render() {
     return (
-      <div className="component-emoji-results">
+      <div className="results">
         {this.props.Data.map(function(Data) {
           return (
             <ResultsRow
@@ -119,14 +119,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtered: filterMissing("", 20),
+      filtered: filterMissing("", 50),
       gender: false
     };
   }
 
   handleSearchChange = event => {
     this.setState({
-      filtered: filterMissing(event.target.value, 20)
+      filtered: filterMissing(event.target.value, 50)
     });
   };
 
@@ -139,7 +139,7 @@ handleGenderChange = gender => {
   render() {
     return (
       <div>
-        <header className="component-header">
+        <header className="header">
           <img
             src="https://acenewsdesk.files.wordpress.com/2014/12/bvyhgl.jpg"
             alt="missing-ppl"
