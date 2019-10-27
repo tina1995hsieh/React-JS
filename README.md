@@ -26,11 +26,12 @@ To be familiar with React JS, I have read the whole tutorial in React website, t
 - https://stackoverflow.com/questions/34893506/return-multiple-elements-inside-react-render
 
 ## Describe your project. What does it do? What components or features of the framework did you explore for this project?
-I built a web missing people searching application which users can search the missing person dynamically and click the particular column to copy the phone numbers if users want to provide information or contact the family of the missing person. Users can type the full name of the person whether or not the texts are capitalized and the missing location such as city, state and country. I created a JSON data from [RandomAPI].(https://randomuser.me/) and broke the UI into a component hierarchy. I separated the UI into four components: App, Search, Results and ResultsRow, where each component matches one piece of my data model. Then, by using arrow function: <br>
+I built a web missing people searching application which users can search the missing person dynamically and click the particular column to copy the phone numbers if users want to provide information or contact the family of the missing person. Users can type the full name of the person whether or not the texts are capitalized and the missing location such as city, state and country. I created a JSON data from [RandomAPI](https://randomuser.me/) and broke the UI into a component hierarchy. I separated the UI into four components: App, Search, Results and ResultsRow, where each component matches one piece of my data model. Then, by using arrow function: <br>
 
 `handleChange = (e) => {...}` <br>
 
 I don’t need to change context of binding methods to `this` in callbacks and create wrappers as event handlers. In addition, I also imported two internal mechanism:
 1. `propTypes`: it helps me to validates the props-type in my application.
 2. `clipboard`: it provides a simple way to copy text from another element.
-    When props are passed to a React component, they are checked against the type definitions configured in the `propTypes` property. (In my case, I used `PropTypes.func` and `PropTypes.string` mostly.) If an invalid value is passed for a prop, a warning is displayed on the JavaScript console.
+
+When props are passed to a React component, they are checked against the type definitions configured in the `propTypes` property. (In my case, I used `PropTypes.func` and `PropTypes.string` mostly.) If an invalid value is passed for a prop, a warning is displayed on the JavaScript console.
