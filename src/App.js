@@ -15,6 +15,9 @@ function filterMissing(searchText, maxResults) {
       if (missingPlace.includes(searchText.toLowerCase())) {
         return true;
       }
+      if (personal.phone.includes(searchText)) {
+        return true;
+      }
       return false;
     })
     .slice(0, maxResults);
